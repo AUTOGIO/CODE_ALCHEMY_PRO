@@ -1,0 +1,5 @@
+Hello,
+I'm experiencing some issues with the mobile app. It crashes frequently when
+I try to upload large files. The desktop version works fine though. Please fix
+the mobile app soon. Thanks!
+Sarah Johnson

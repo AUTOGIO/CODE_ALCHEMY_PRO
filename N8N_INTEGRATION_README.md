@@ -32,24 +32,28 @@ CODE_ALCHEMY_PRO/
 ## ✨ Key Features
 
 ### **1. Secure API Layer**
+
 - **API Key Authentication**: Secure access control
 - **Rate Limiting**: 100 requests per minute per key
 - **IP Whitelisting**: Restricted to trusted sources
 - **CORS Support**: Cross-origin resource sharing
 
 ### **2. Webhook Management**
+
 - **Real-time Processing**: Async webhook handling
 - **Queue Management**: Background processing
 - **History Tracking**: Comprehensive webhook logs
 - **Error Handling**: Robust error management
 
 ### **3. Agent Integration**
+
 - **Status Monitoring**: Real-time agent status
 - **Trigger Control**: Remote agent activation
 - **Parameter Passing**: Dynamic workflow configuration
 - **Response Handling**: Automated response processing
 
 ### **4. System Monitoring**
+
 - **Resource Alerts**: CPU, memory, disk monitoring
 - **Performance Metrics**: Real-time system data
 - **Automated Responses**: Intelligent alert handling
@@ -60,17 +64,20 @@ CODE_ALCHEMY_PRO/
 ### **Prerequisites**
 
 1. **Python Dependencies**
+
    ```bash
    pip install fastapi uvicorn python-multipart aiohttp
    ```
 
 2. **N8N Instance** (optional for testing)
+
    ```bash
    npm install -g n8n
    n8n start
    ```
 
 3. **Environment Setup**
+
    ```bash
    cp env.n8n.example .env
    # Edit .env with your configuration
@@ -79,20 +86,22 @@ CODE_ALCHEMY_PRO/
 ### **Launch Integration**
 
 1. **Start the Integration API**
+
    ```bash
    python launch_n8n_integration.py
    ```
 
 2. **Access API Documentation**
-   - **Swagger UI**: http://localhost:8000/docs
-   - **ReDoc**: http://localhost:8000/redoc
-   - **Health Check**: http://localhost:8000/health
+   - **Swagger UI**: <http://localhost:8000/docs>
+   - **ReDoc**: <http://localhost:8000/redoc>
+   - **Health Check**: <http://localhost:8000/health>
 
 3. **Test Webhook Endpoints**
+
    ```bash
    # Test system alert webhook
    curl -X POST http://localhost:8000/webhook/system-alert \
-     -H "Authorization: Bearer sk_codealchemy_n8n_2025" \
+     -H "Authorization: Bearer sk_code-alchemy_n8n_2025" \
      -H "Content-Type: application/json" \
      -d '{"type": "test", "message": "Integration test"}'
    ```
@@ -137,16 +146,16 @@ The integration uses Bearer token authentication with predefined API keys:
 ```python
 # Default API Keys
 API_KEYS = {
-    "n8n_main": "sk_codealchemy_n8n_2025",
-    "n8n_monitoring": "sk_codealchemy_monitor_2025",
-    "n8n_automation": "sk_codealchemy_auto_2025"
+    "n8n_main": "sk_code-alchemy_n8n_2025",
+    "n8n_monitoring": "sk_code-alchemy_monitor_2025",
+    "n8n_automation": "sk_code-alchemy_auto_2025"
 }
 ```
 
 ### **Usage Example**
 
 ```bash
-curl -H "Authorization: Bearer sk_codealchemy_n8n_2025" \
+curl -H "Authorization: Bearer sk_code-alchemy_n8n_2025" \
      http://localhost:8000/api/agents/status
 ```
 
@@ -157,12 +166,14 @@ curl -H "Authorization: Bearer sk_codealchemy_n8n_2025" \
 **Template**: `data/n8n/templates/system_monitor_workflow.json`
 
 **Features**:
+
 - CPU usage alerts
 - Memory threshold monitoring
 - Disk space alerts
 - Automated response actions
 
 **Usage**:
+
 1. Import workflow into N8N
 2. Configure webhook endpoint
 3. Set up alert thresholds
@@ -171,6 +182,7 @@ curl -H "Authorization: Bearer sk_codealchemy_n8n_2025" \
 ### **2. File Organization Workflow**
 
 **Features**:
+
 - File upload triggers
 - Automatic categorization
 - Duplicate detection
@@ -179,6 +191,7 @@ curl -H "Authorization: Bearer sk_codealchemy_n8n_2025" \
 ### **3. Content Analysis Workflow**
 
 **Features**:
+
 - Document processing
 - Content extraction
 - Analysis automation
@@ -249,7 +262,7 @@ if not n8n_config.validate_config():
 curl http://localhost:8000/health
 
 # Agent status (with auth)
-curl -H "Authorization: Bearer sk_codealchemy_n8n_2025" \
+curl -H "Authorization: Bearer sk_code-alchemy_n8n_2025" \
      http://localhost:8000/api/agents/status
 ```
 
@@ -258,7 +271,7 @@ curl -H "Authorization: Bearer sk_codealchemy_n8n_2025" \
 ```bash
 # Test webhook
 curl -X POST http://localhost:8000/webhook/system-alert \
-     -H "Authorization: Bearer sk_codealchemy_n8n_2025" \
+     -H "Authorization: Bearer sk_code-alchemy_n8n_2025" \
      -H "Content-Type: application/json" \
      -d '{"type": "test", "message": "Test alert"}'
 ```
@@ -270,7 +283,7 @@ curl -X POST http://localhost:8000/webhook/system-alert \
 n8n start
 
 # Test webhook from N8N
-curl -X POST http://localhost:5678/webhook/codealchemy \
+curl -X POST http://localhost:5678/webhook/code-alchemy \
      -H "Content-Type: application/json" \
      -d '{"test": "data"}'
 ```
@@ -280,6 +293,7 @@ curl -X POST http://localhost:5678/webhook/codealchemy \
 ### **Common Issues**
 
 1. **Port Already in Use**
+
    ```bash
    # Check port usage
    lsof -i :8000
@@ -290,6 +304,7 @@ curl -X POST http://localhost:5678/webhook/codealchemy \
    ```
 
 2. **Import Errors**
+
    ```bash
    # Install dependencies
    pip install fastapi uvicorn python-multipart aiohttp
@@ -299,9 +314,10 @@ curl -X POST http://localhost:5678/webhook/codealchemy \
    ```
 
 3. **Authentication Failures**
+
    ```bash
    # Verify API key
-   curl -H "Authorization: Bearer sk_codealchemy_n8n_2025" \
+   curl -H "Authorization: Bearer sk_code-alchemy_n8n_2025" \
         http://localhost:8000/health
    
    # Check configuration
@@ -418,9 +434,9 @@ async def orchestrate_workflow(workflow: Dict[str, Any]):
 
 ### **Interactive Documentation**
 
-- **Swagger UI**: http://localhost:8000/docs
-- **ReDoc**: http://localhost:8000/redoc
-- **OpenAPI Schema**: http://localhost:8000/openapi.json
+- **Swagger UI**: <http://localhost:8000/docs>
+- **ReDoc**: <http://localhost:8000/redoc>
+- **OpenAPI Schema**: <http://localhost:8000/openapi.json>
 
 ### **Code Examples**
 
@@ -429,7 +445,7 @@ import requests
 
 # Initialize client
 base_url = "http://localhost:8000"
-headers = {"Authorization": "Bearer sk_codealchemy_n8n_2025"}
+headers = {"Authorization": "Bearer sk_code-alchemy_n8n_2025"}
 
 # Get agent status
 response = requests.get(f"{base_url}/api/agents/status", headers=headers)
@@ -544,11 +560,13 @@ This integration is part of CODE_ALCHEMY Professional and follows the same licen
 ## 🆘 Support
 
 ### **Documentation**
-- **API Docs**: http://localhost:8000/docs
+
+- **API Docs**: <http://localhost:8000/docs>
 - **Integration Guide**: This README
-- **N8N Docs**: https://docs.n8n.io/
+- **N8N Docs**: <https://docs.n8n.io/>
 
 ### **Community**
+
 - **GitHub Issues**: Report bugs and feature requests
 - **Discussions**: Community support and ideas
 - **Email**: Enterprise support inquiries

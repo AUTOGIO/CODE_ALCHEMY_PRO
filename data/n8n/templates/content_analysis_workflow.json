@@ -8,11 +8,14 @@
         "responseMode": "responseNode",
         "options": {}
       },
-      "id": "webhook-trigger",
+      "id": "1c51bb17-f7f4-4bef-8159-3d0b4d256059",
       "name": "Content Analysis Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
-      "position": [240, 300],
+      "position": [
+        -1392,
+        912
+      ],
       "webhookId": "content-analysis-webhook"
     },
     {
@@ -27,11 +30,14 @@
           ]
         }
       },
-      "id": "analysis-router",
+      "id": "71ae66f5-7cc1-4605-8587-f7e97108a642",
       "name": "Route by Analysis Type",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
-      "position": [460, 300]
+      "position": [
+        -1184,
+        912
+      ]
     },
     {
       "parameters": {
@@ -67,11 +73,14 @@
         },
         "options": {}
       },
-      "id": "trigger-content-analysis",
+      "id": "f6831a8f-a9be-4f7e-8985-a961330bacc6",
       "name": "Trigger Content Analysis",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
-      "position": [680, 200],
+      "position": [
+        -960,
+        816
+      ],
       "credentials": {
         "httpHeaderAuth": {
           "id": "n8n-api-credentials",
@@ -109,11 +118,59 @@
         },
         "options": {}
       },
-      "id": "trigger-insight-extraction",
+      "id": "8b4a751b-278f-4884-b869-f4eef4b4aa57",
       "name": "Trigger Insight Extraction",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
-      "position": [680, 400],
+      "position": [
+        -960,
+        1008
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "n8n-api-credentials",
+          "name": "CODE_ALCHEMY API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "url": "http://localhost:8000/webhook/results",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer sk_codealchemy_n8n_2025"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "analysis_results"
+            },
+            {
+              "name": "results",
+              "value": "={{ $json }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "607feee7-ffac-4cac-bb77-15ad30e66b8c",
+      "name": "Send Results Back",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -80,
+        816
+      ],
       "credentials": {
         "httpHeaderAuth": {
           "id": "n8n-api-credentials",
@@ -133,31 +190,40 @@
           ]
         }
       },
-      "id": "success-check",
-      "name": "Check Success",
+      "id": "bea9c67f-3ff7-4b11-8fc6-7ebde3728d37",
+      "name": "Check Success1",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
-      "position": [900, 200]
+      "position": [
+        -736,
+        816
+      ]
     },
     {
       "parameters": {
-        "jsCode": "// Process successful content analysis\nconst result = $input.first();\n\n// Extract analysis results\nconst documentsAnalyzed = result.json.documents_analyzed || 0;\nconst insightsFound = result.json.insights_found || 0;\nconst processingTime = result.json.processing_time || 0;\nconst analysisType = result.json.analysis_type || 'unknown';\n\n// Create comprehensive summary\nconst summary = {\n  status: 'success',\n  operation: 'content_analysis',\n  analysis_type: analysisType,\n  timestamp: new Date().toISOString(),\n  metrics: {\n    documents_analyzed: documentsAnalyzed,\n    insights_found: insightsFound,\n    processing_time: processingTime\n  },\n  message: `Successfully analyzed ${documentsAnalyzed} documents, found ${insightsFound} insights in ${processingTime}s`\n};\n\n// Log to console\nconsole.log('Content Analysis Summary:', summary);\n\nreturn summary;"
+        "jsCode": "// Process successful content analysis\nconst result = $input.first();\n\n// Extract analysis results with defaults\nconst documentsAnalyzed = result.json.documents_analyzed || 0;\nconst insightsFound = result.json.insights_found || 0;\nconst processingTime = result.json.processing_time || 0;\nconst analysisType = result.json.analysis_type || 'unknown';\n\n// Create comprehensive summary\nconst summary = {\n status: 'success',\n operation: 'content_analysis',\n analysis_type: analysisType,\n timestamp: new Date().toISOString(),\n metrics: {\n documents_analyzed: documentsAnalyzed,\n insights_found: insightsFound,\n processing_time: processingTime\n },\n message: `Successfully analyzed ${documentsAnalyzed} documents, found ${insightsFound} insights in ${processingTime}s`\n};\n\n// Log to console\nconsole.log('Content Analysis Summary:', summary);\n\nreturn summary;"
       },
-      "id": "process-success",
-      "name": "Process Success",
+      "id": "1ee496c0-998c-4c55-ae12-a187d78d0d5c",
+      "name": "Process Success1",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1120, 100]
+      "position": [
+        -512,
+        704
+      ]
     },
     {
       "parameters": {
-        "jsCode": "// Handle content analysis failure\nconst result = $input.first();\n\nconst errorSummary = {\n  status: 'error',\n  operation: 'content_analysis',\n  timestamp: new Date().toISOString(),\n  error: result.json.error || 'Unknown error',\n  message: 'Content analysis operation failed'\n};\n\n// Log error\nconsole.error('Content Analysis Error:', errorSummary);\n\nreturn errorSummary;"
+        "jsCode": "// Handle content analysis failure\nconst result = $input.first();\n\nconst errorSummary = {\n status: 'error',\n operation: 'content_analysis',\n timestamp: new Date().toISOString(),\n error: result.json.error || 'Unknown error',\n message: 'Content analysis operation failed'\n};\n\n// Log error\nconsole.error('Content Analysis Error:', errorSummary);\n\nreturn errorSummary;"
       },
-      "id": "process-error",
-      "name": "Process Error",
+      "id": "cebdb5f5-709b-466a-b275-bcd01b3a1220",
+      "name": "Process Error1",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1120, 300]
+      "position": [
+        -512,
+        912
+      ]
     },
     {
       "parameters": {
@@ -189,11 +255,14 @@
         },
         "options": {}
       },
-      "id": "notify-completion",
-      "name": "Notify Completion",
+      "id": "7fb51d2f-2a51-483f-ad18-bb0f58b8e533",
+      "name": "Notify Completion1",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
-      "position": [1340, 200],
+      "position": [
+        -304,
+        816
+      ],
       "credentials": {
         "httpHeaderAuth": {
           "id": "n8n-api-credentials",
@@ -204,7 +273,7 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "url": "http://localhost:8000/webhook/content-analysis",
+        "url": "http://localhost:8000/webhook/results",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -221,7 +290,7 @@
           "parameters": [
             {
               "name": "type",
-              "value": "analysis_results"
+              "value": "error_results"
             },
             {
               "name": "results",
@@ -231,11 +300,14 @@
         },
         "options": {}
       },
-      "id": "send-results",
-      "name": "Send Results Back",
+      "id": "607feee7-ffac-4cac-bb77-15ad30e66b8d",
+      "name": "Send Error Results",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
-      "position": [1560, 200],
+      "position": [
+        -80,
+        912
+      ],
       "credentials": {
         "httpHeaderAuth": {
           "id": "n8n-api-credentials",
@@ -278,54 +350,54 @@
       "main": [
         [
           {
-            "node": "Check Success",
+            "node": "Check Success1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Check Success": {
+    "Check Success1": {
       "main": [
         [
           {
-            "node": "Process Success",
+            "node": "Process Success1",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Process Error",
+            "node": "Process Error1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Process Success": {
+    "Process Success1": {
       "main": [
         [
           {
-            "node": "Notify Completion",
+            "node": "Notify Completion1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Process Error": {
+    "Process Error1": {
       "main": [
         [
           {
-            "node": "Notify Completion",
+            "node": "Send Error Results",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Notify Completion": {
+    "Notify Completion1": {
       "main": [
         [
           {

@@ -1,0 +1,59 @@
+{
+  "test_environment": {
+    "name": "N8N Safe Testing Environment",
+    "description": "Isolated testing environment for N8N workflows",
+    "risk_level": "LOW"
+  },
+  "test_directories": {
+    "sandbox": "data/test_sandbox",
+    "documents": "data/test_sandbox/documents",
+    "backups": "data/test_sandbox/backups",
+    "results": "data/test_sandbox/results",
+    "logs": "data/test_sandbox/logs"
+  },
+  "test_limits": {
+    "max_files_per_test": 3,
+    "max_file_size_mb": 10,
+    "test_timeout_seconds": 30,
+    "dry_run_enabled": true
+  },
+  "safe_operations": {
+    "file_operations": {
+      "read_only": true,
+      "copy_only": true,
+      "no_delete": true,
+      "no_move": true
+    },
+    "api_calls": {
+      "rate_limit": "10/minute",
+      "timeout": "5 seconds",
+      "retry_limit": 2
+    }
+  },
+  "test_scenarios": {
+    "content_analysis": {
+      "enabled": true,
+      "test_files": ["customer_feedback_1_1_1.txt", "financial_report_2024_1.txt"],
+      "analysis_type": "comprehensive",
+      "test_mode": true
+    },
+    "file_organization": {
+      "enabled": true,
+      "operation": "process_documents",
+      "dry_run": true,
+      "test_mode": true
+    },
+    "productivity": {
+      "enabled": true,
+      "optimization_type": "pattern_analysis",
+      "analysis_mode": "read_only",
+      "test_mode": true
+    },
+    "system_monitor": {
+      "enabled": true,
+      "alert_types": ["high_cpu", "high_memory", "disk_full"],
+      "test_mode": true,
+      "mock_alerts": true
+    }
+  }
+}

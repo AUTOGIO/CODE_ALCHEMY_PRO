@@ -1,0 +1,13 @@
+{
+  "timestamp": "20250812_143428",
+  "results": {
+    "Health Check": true,
+    "System Monitoring": true,
+    "Content Analysis": false,
+    "File Organization": false,
+    "Productivity Analysis": false,
+    "System Monitor": false
+  },
+  "test_environment": "safe_sandbox",
+  "api_base": "http://localhost:8000"
+}

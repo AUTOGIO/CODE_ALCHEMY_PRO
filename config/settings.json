@@ -1,0 +1,110 @@
+{
+  "system": {
+    "environment": "production",
+    "debug_mode": false,
+    "log_level": "INFO",
+    "data_dir": "data",
+    "cache_dir": "data/cache",
+    "logs_dir": "data/logs",
+    "models_dir": "data/models",
+    "reports_dir": "data/reports",
+    "documents_dir": "data/documents"
+  },
+  "models": {
+    "models_path": "/Volumes/MICRO/models",
+    "server_url": "http://localhost:1234",
+    "default_model": "DeepSeek-R1-0528-Qwen3-8B-Q6_K.gguf",
+    "fallback_model": "Meta-Llama-3.1-8B-Instruct-Q6_K.gguf",
+    "reasoning_model": "Phi-4-mini-reasoning-Q8_0.gguf",
+    "fast_model": "TinyLlama-1.1B-Chat-v1.0-Q4_K_M.gguf",
+    "vision_model": "Qwen2.5-VL-7B-Instruct-Q4_K_M.gguf"
+  },
+  "agents": {
+    "file_organization": {
+      "enabled": true,
+      "model": "DeepSeek-R1-0528-Qwen3-8B-Q6_K.gguf",
+      "batch_size": 8,
+      "memory_limit": "2GB"
+    },
+    "content_analysis": {
+      "enabled": true,
+      "model": "Meta-Llama-3.1-8B-Instruct-Q6_K.gguf",
+      "multimodal": true
+    },
+    "code_intelligence": {
+      "enabled": true,
+      "model": "DeepSeek-R1-Distill-Llama-8B-Q4_K_M.gguf",
+      "specialized_models": {
+        "python": "Mistral-7B-Instruct-v0.1-Q4_K_M.gguf",
+        "javascript": "Phi-4-mini-reasoning-Q8_0.gguf"
+      }
+    },
+    "productivity": {
+      "enabled": true,
+      "model": "Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
+      "real_time_analysis": true
+    },
+    "security": {
+      "enabled": true,
+      "model": "TinyLlama-1.1B-Chat-v1.0-Q4_K_M.gguf",
+      "continuous_monitoring": true
+    }
+  },
+  "integrations": {
+    "github": {
+      "enabled": false,
+      "token": "",
+      "username": "",
+      "auto_commit": false,
+      "project_tracking": false
+    },
+    "google_drive": {
+      "enabled": false,
+      "sync_folders": [
+        "~/Desktop/CODE_ALCHEMY_Projects",
+        "~/Documents/AI_Projects",
+        "~/Downloads/Code_Projects"
+      ],
+      "auto_backup": false
+    },
+    "mcp": {
+      "enabled": true,
+      "servers": {
+        "lm-studio-bridge": {
+          "command": "python",
+          "args": [
+            "src/mcp/lm_studio_bridge.py"
+          ],
+          "env": {
+            "LM_STUDIO_URL": "http://localhost:1234"
+          }
+        },
+        "model-manager": {
+          "command": "python",
+          "args": [
+            "src/mcp/model_manager.py"
+          ],
+          "env": {
+            "MODELS_PATH": "/Volumes/MICRO/models"
+          }
+        },
+        "code-assistant": {
+          "command": "python",
+          "args": [
+            "src/mcp/code_assistant.py"
+          ],
+          "env": {
+            "CODE_MODELS": "Phi-4-mini-reasoning-GGUF,DeepSeek-R1-0528-Qwen3-8B-Q6_K.gguf"
+          }
+        }
+      }
+    }
+  },
+  "m3_optimization": {
+    "neural_engine_enabled": true,
+    "unified_memory_limit": "8GB",
+    "parallel_processing": true,
+    "dynamic_caching": true,
+    "core_utilization": 4
+  }
+}
