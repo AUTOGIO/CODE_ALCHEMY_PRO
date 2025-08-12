@@ -1,0 +1,9 @@
+EmployeeID,Role,Tenure_years,JobSatisfaction,WorkLifeBalance,TrainingOpportunities,ManagementSupport,RecommendToFriend,Comments
+E001,Store Manager,4.0,4,4,3,5,Yes,"Enjoys leadership role, would like more advanced POS training."
+E002,Assistant Manager,3.0,4,3,4,4,Yes,Feels workload spikes during sales—suggests extra seasonal hire.
+E003,Sales Associate,2.0,5,5,4,5,Yes,Loves team culture and flexible scheduling.
+E004,Sales Associate,1.0,3,4,3,3,No,Wants clearer growth path; interested in visual‑merch training.
+E005,Cashier,0.5,4,4,4,4,Yes,POS onboarding was smooth and helpful.
+E006,Inventory Specialist,2.0,3,3,2,3,No,Would like better stockroom ergonomics + barcode scanners.
+E007,Visual Merchandiser,1.0,5,5,5,5,Yes,Has creative autonomy; happy with workshop budget.
+E008,Sales Associate,0.8,4,4,3,4,Yes,Suggests team-building activities outside store hours.

@@ -1,0 +1,73 @@
+{
+  "timestamp": "2025-07-27T23:38:36.061631",
+  "summary": {
+    "files_organized": 9,
+    "duplicates_found": 0,
+    "total_size_bytes": 583,
+    "total_size_mb": 0.0
+  },
+  "type_distribution": {
+    "video": 1,
+    "application": 5,
+    "audio": 1,
+    "text": 1,
+    "image": 1
+  },
+  "organized_files": [
+    {
+      "original": "data/documents/video_sample.mp4",
+      "organized": "data/documents/video/video_sample.mp4",
+      "type": "video",
+      "size": 63
+    },
+    {
+      "original": "data/documents/spreadsheet.xlsx",
+      "organized": "data/documents/other/spreadsheet.xlsx",
+      "type": "application",
+      "size": 69
+    },
+    {
+      "original": "data/documents/audio_file.mp3",
+      "organized": "data/documents/audio/audio_file.mp3",
+      "type": "audio",
+      "size": 63
+    },
+    {
+      "original": "data/documents/code_script.py",
+      "organized": "data/documents/document/code_script.py",
+      "type": "text",
+      "size": 62
+    },
+    {
+      "original": "data/documents/presentation.pptx",
+      "organized": "data/documents/other/presentation.pptx",
+      "type": "application",
+      "size": 70
+    },
+    {
+      "original": "data/documents/test_document.pdf",
+      "organized": "data/documents/other/test_document.pdf",
+      "type": "application",
+      "size": 66
+    },
+    {
+      "original": "data/documents/data_file.json",
+      "organized": "data/documents/other/data_file.json",
+      "type": "application",
+      "size": 62
+    },
+    {
+      "original": "data/documents/archive.zip",
+      "organized": "data/documents/other/archive.zip",
+      "type": "application",
+      "size": 65
+    },
+    {
+      "original": "data/documents/sample_image.jpg",
+      "organized": "data/documents/image/sample_image.jpg",
+      "type": "image",
+      "size": 63
+    }
+  ],
+  "duplicates": []
+}

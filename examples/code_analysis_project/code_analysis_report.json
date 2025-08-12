@@ -1,0 +1,32 @@
+{
+  "project": "Code Analysis & Optimization",
+  "timestamp": "2025-07-28T01:25:18.879764",
+  "analysis_summary": {
+    "files_analyzed": 3,
+    "issues_found": 8,
+    "optimizations_applied": 6,
+    "security_vulnerabilities": 3,
+    "performance_improvements": 4
+  },
+  "recommendations": [
+    "Implement comprehensive error handling",
+    "Add input validation and sanitization",
+    "Use environment variables for configuration",
+    "Implement proper logging and monitoring",
+    "Add unit tests for all functions",
+    "Consider using async/await for I/O operations"
+  ],
+  "files": {
+    "original": [
+      "main.py",
+      "utils.py",
+      "tests.py"
+    ],
+    "optimized": [
+      "optimized_main.py"
+    ],
+    "analysis": [
+      "code_analysis_report.json"
+    ]
+  }
+}

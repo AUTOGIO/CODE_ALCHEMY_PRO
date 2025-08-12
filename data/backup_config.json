@@ -1,0 +1,20 @@
+{
+  "auto_backup": true,
+  "backup_interval_hours": 24,
+  "max_backups": 10,
+  "backup_size_limit_mb": 1000,
+  "include_directories": [
+    "data/documents",
+    "data/reports",
+    "data/logs",
+    "config"
+  ],
+  "exclude_patterns": [
+    "*.tmp",
+    "*.cache",
+    "*.log",
+    "__pycache__"
+  ],
+  "compression": true,
+  "encryption": false
+}

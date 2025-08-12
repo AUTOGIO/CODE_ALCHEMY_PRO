@@ -1,0 +1,105 @@
+[
+  {
+    "name": "Business Intelligence Automation",
+    "start_time": "2025-07-28T01:26:39.304451",
+    "steps": [
+      {
+        "step_number": 1,
+        "name": "Data Collection & Processing",
+        "description": "Collect and process business data files",
+        "start_time": "2025-07-28T01:26:39.304473",
+        "status": "completed",
+        "end_time": "2025-07-28T01:26:39.315624",
+        "duration": 0.01114964485168457,
+        "result": {
+          "success": true,
+          "output": {
+            "files_processed": 23,
+            "files_created": 3,
+            "processing_time": 0.010421991348266602
+          }
+        }
+      },
+      {
+        "step_number": 2,
+        "name": "AI-Powered Analysis",
+        "description": "Analyze data using AI models for insights",
+        "start_time": "2025-07-28T01:26:39.315657",
+        "status": "failed",
+        "end_time": "2025-07-28T01:26:49.319128",
+        "duration": 10.003468036651611,
+        "result": {
+          "success": false,
+          "error": "Failed to get model recommendation"
+        }
+      },
+      {
+        "step_number": 3,
+        "name": "Data Transformation",
+        "description": "Transform raw data into business metrics",
+        "start_time": "2025-07-28T01:26:49.319202",
+        "status": "completed",
+        "end_time": "2025-07-28T01:26:49.319215",
+        "duration": 1.3113021850585938e-05,
+        "result": {
+          "success": true,
+          "output": {
+            "customer_metrics": {
+              "total_customers": 3,
+              "active_customers": 2,
+              "retention_rate": "67%"
+            },
+            "sales_metrics": {
+              "total_sales": 3800,
+              "average_sale": 1900,
+              "growth_rate": "15%"
+            },
+            "inventory_metrics": {
+              "total_products": 3,
+              "total_units": 425,
+              "stock_level": "Good"
+            }
+          }
+        }
+      },
+      {
+        "step_number": 4,
+        "name": "GitHub Integration",
+        "description": "Create GitHub issues for findings and actions",
+        "start_time": "2025-07-28T01:26:49.319259",
+        "status": "completed",
+        "end_time": "2025-07-28T01:26:50.559416",
+        "duration": 1.2401561737060547,
+        "result": {
+          "success": true,
+          "output": {
+            "github_connected": true,
+            "issue_created": false,
+            "issue_url": ""
+          }
+        }
+      },
+      {
+        "step_number": 5,
+        "name": "Report Generation",
+        "description": "Generate comprehensive business intelligence report",
+        "start_time": "2025-07-28T01:26:50.559455",
+        "status": "completed",
+        "end_time": "2025-07-28T01:26:50.559740",
+        "duration": 0.0002849102020263672,
+        "result": {
+          "success": true,
+          "output": {
+            "report_generated": true,
+            "report_file": "examples/workflow_orchestration_project/workflow_execution_report.json",
+            "insights_count": 3,
+            "recommendations_count": 5
+          }
+        }
+      }
+    ],
+    "status": "failed",
+    "end_time": "2025-07-28T01:26:50.559752",
+    "duration": 11.255303859710693
+  }
+]

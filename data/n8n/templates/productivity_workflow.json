@@ -1,0 +1,352 @@
+{
+  "name": "Productivity Optimization Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "webhook/productivity",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Productivity Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "productivity-webhook"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.optimization_type }}",
+              "operation": "equal",
+              "value2": "workflow_optimization"
+            }
+          ]
+        }
+      },
+      "id": "optimization-router",
+      "name": "Route by Optimization Type",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "url": "http://localhost:8000/api/agents/productivity/trigger",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer sk_codealchemy_n8n_2025"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "operation",
+              "value": "optimize_workflows"
+            },
+            {
+              "name": "optimization_type",
+              "value": "performance"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "trigger-productivity-optimization",
+      "name": "Trigger Productivity Optimization",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [680, 200],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "n8n-api-credentials",
+          "name": "CODE_ALCHEMY API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "url": "http://localhost:8000/api/agents/productivity/trigger",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer sk_codealchemy_n8n_2025"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "operation",
+              "value": "analyze_patterns"
+            },
+            {
+              "name": "analysis_scope",
+              "value": "workflow_efficiency"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "trigger-pattern-analysis",
+      "name": "Trigger Pattern Analysis",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [680, 400],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "n8n-api-credentials",
+          "name": "CODE_ALCHEMY API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.success }}",
+              "operation": "equal",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "success-check",
+      "name": "Check Success",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [900, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Process successful productivity optimization\nconst result = $input.first();\n\n// Extract optimization results\nconst workflowsOptimized = result.json.workflows_optimized || 0;\nconst efficiencyGain = result.json.efficiency_gain || 0;\nconst processingTime = result.json.processing_time || 0;\nconst optimizationType = result.json.optimization_type || 'unknown';\n\n// Create optimization summary\nconst summary = {\n  status: 'success',\n  operation: 'productivity_optimization',\n  optimization_type: optimizationType,\n  timestamp: new Date().toISOString(),\n  metrics: {\n    workflows_optimized: workflowsOptimized,\n    efficiency_gain: efficiencyGain,\n    processing_time: processingTime\n  },\n  message: `Successfully optimized ${workflowsOptimized} workflows with ${efficiencyGain}% efficiency gain in ${processingTime}s`\n};\n\n// Log to console\nconsole.log('Productivity Optimization Summary:', summary);\n\nreturn summary;"
+      },
+      "id": "process-success",
+      "name": "Process Success",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 100]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Handle productivity optimization failure\nconst result = $input.first();\n\nconst errorSummary = {\n  status: 'error',\n  operation: 'productivity_optimization',\n  timestamp: new Date().toISOString(),\n  error: result.json.error || 'Unknown error',\n  message: 'Productivity optimization operation failed'\n};\n\n// Log error\nconsole.error('Productivity Optimization Error:', errorSummary);\n\nreturn errorSummary;"
+      },
+      "id": "process-error",
+      "name": "Process Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "url": "http://localhost:8000/webhook/system-alert",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer sk_codealchemy_n8n_2025"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "productivity_optimization_complete"
+            },
+            {
+              "name": "data",
+              "value": "={{ $json }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "notify-completion",
+      "name": "Notify Completion",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1340, 200],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "n8n-api-credentials",
+          "name": "CODE_ALCHEMY API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "url": "http://localhost:8000/webhook/productivity",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer sk_codealchemy_n8n_2025"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "optimization_results"
+            },
+            {
+              "name": "results",
+              "value": "={{ $json }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "send-results",
+      "name": "Send Results Back",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1560, 200],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "n8n-api-credentials",
+          "name": "CODE_ALCHEMY API"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Productivity Webhook": {
+      "main": [
+        [
+          {
+            "node": "Route by Optimization Type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route by Optimization Type": {
+      "main": [
+        [
+          {
+            "node": "Trigger Productivity Optimization",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Trigger Pattern Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger Productivity Optimization": {
+      "main": [
+        [
+          {
+            "node": "Check Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Success": {
+      "main": [
+        [
+          {
+            "node": "Process Success",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Process Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Success": {
+      "main": [
+        [
+          {
+            "node": "Notify Completion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Error": {
+      "main": [
+        [
+          {
+            "node": "Notify Completion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notify Completion": {
+      "main": [
+        [
+          {
+            "node": "Send Results Back",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-01-28T00:00:00.000Z",
+      "updatedAt": "2025-01-28T00:00:00.000Z",
+      "id": "productivity-tag",
+      "name": "productivity"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-28T00:00:00.000Z",
+  "versionId": "1"
+}

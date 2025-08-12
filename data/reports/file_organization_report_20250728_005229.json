@@ -1,0 +1,158 @@
+{
+  "timestamp": "2025-07-28T00:52:29.406007",
+  "summary": {
+    "files_organized": 23,
+    "duplicates_found": 0,
+    "total_size_bytes": 5248,
+    "total_size_mb": 0.01
+  },
+  "type_distribution": {
+    "text": 4,
+    "application": 11,
+    "unknown": 2,
+    "video": 2,
+    "image": 2,
+    "audio": 2
+  },
+  "organized_files": [
+    {
+      "original": "data/documents/employee_survey.csv",
+      "organized": "data/documents/document/employee_survey.csv",
+      "type": "text",
+      "size": 493
+    },
+    {
+      "original": "data/documents/financial_report_2024.txt",
+      "organized": "data/documents/document/financial_report_2024.txt",
+      "type": "text",
+      "size": 637
+    },
+    {
+      "original": "data/documents/customer_feedback.json",
+      "organized": "data/documents/other/customer_feedback.json",
+      "type": "application",
+      "size": 756
+    },
+    {
+      "original": "data/documents/market_analysis.md",
+      "organized": "data/documents/other/market_analysis.md",
+      "type": "unknown",
+      "size": 1158
+    },
+    {
+      "original": "data/documents/project_timeline.yaml",
+      "organized": "data/documents/other/project_timeline.yaml",
+      "type": "unknown",
+      "size": 1038
+    },
+    {
+      "original": "data/documents/video/video_sample_1.mp4",
+      "organized": "data/documents/video/video_sample_1_1.mp4",
+      "type": "video",
+      "size": 63
+    },
+    {
+      "original": "data/documents/video/video_sample_2.mp4",
+      "organized": "data/documents/video/video_sample_2_1.mp4",
+      "type": "video",
+      "size": 63
+    },
+    {
+      "original": "data/documents/other/spreadsheet_1.xlsx",
+      "organized": "data/documents/other/spreadsheet_1_1.xlsx",
+      "type": "application",
+      "size": 69
+    },
+    {
+      "original": "data/documents/other/test_document_1.pdf",
+      "organized": "data/documents/other/test_document_1_1.pdf",
+      "type": "application",
+      "size": 66
+    },
+    {
+      "original": "data/documents/other/data_file_1.json",
+      "organized": "data/documents/other/data_file_1_1.json",
+      "type": "application",
+      "size": 62
+    },
+    {
+      "original": "data/documents/other/test_document_2.pdf",
+      "organized": "data/documents/other/test_document_2_1.pdf",
+      "type": "application",
+      "size": 66
+    },
+    {
+      "original": "data/documents/other/presentation_1.pptx",
+      "organized": "data/documents/other/presentation_1_1.pptx",
+      "type": "application",
+      "size": 70
+    },
+    {
+      "original": "data/documents/other/archive_1.zip",
+      "organized": "data/documents/other/archive_1_1.zip",
+      "type": "application",
+      "size": 65
+    },
+    {
+      "original": "data/documents/other/archive_2.zip",
+      "organized": "data/documents/other/archive_2_1.zip",
+      "type": "application",
+      "size": 65
+    },
+    {
+      "original": "data/documents/other/data_file_2.json",
+      "organized": "data/documents/other/data_file_2_1.json",
+      "type": "application",
+      "size": 62
+    },
+    {
+      "original": "data/documents/other/presentation_2.pptx",
+      "organized": "data/documents/other/presentation_2_1.pptx",
+      "type": "application",
+      "size": 70
+    },
+    {
+      "original": "data/documents/other/spreadsheet_2.xlsx",
+      "organized": "data/documents/other/spreadsheet_2_1.xlsx",
+      "type": "application",
+      "size": 69
+    },
+    {
+      "original": "data/documents/document/code_script_2.py",
+      "organized": "data/documents/document/code_script_2_1.py",
+      "type": "text",
+      "size": 62
+    },
+    {
+      "original": "data/documents/document/code_script_1.py",
+      "organized": "data/documents/document/code_script_1_1.py",
+      "type": "text",
+      "size": 62
+    },
+    {
+      "original": "data/documents/image/sample_image_1.jpg",
+      "organized": "data/documents/image/sample_image_1_1.jpg",
+      "type": "image",
+      "size": 63
+    },
+    {
+      "original": "data/documents/image/sample_image_2.jpg",
+      "organized": "data/documents/image/sample_image_2_1.jpg",
+      "type": "image",
+      "size": 63
+    },
+    {
+      "original": "data/documents/audio/audio_file_2.mp3",
+      "organized": "data/documents/audio/audio_file_2_1.mp3",
+      "type": "audio",
+      "size": 63
+    },
+    {
+      "original": "data/documents/audio/audio_file_1.mp3",
+      "organized": "data/documents/audio/audio_file_1_1.mp3",
+      "type": "audio",
+      "size": 63
+    }
+  ],
+  "duplicates": []
+}

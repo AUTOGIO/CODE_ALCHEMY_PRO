@@ -1,0 +1,33 @@
+{
+  "survey_results": {
+    "total_responses": 1250,
+    "satisfaction_scores": {
+      "product_quality": 4.2,
+      "customer_service": 4.5,
+      "ease_of_use": 4.1,
+      "value_for_money": 3.9,
+      "overall_satisfaction": 4.2
+    },
+    "top_complaints": [
+      "Slow response times",
+      "Complex interface",
+      "High pricing",
+      "Limited features",
+      "Poor documentation"
+    ],
+    "top_praises": [
+      "Reliable service",
+      "Helpful support team",
+      "Good value",
+      "Easy integration",
+      "Regular updates"
+    ],
+    "improvement_suggestions": [
+      "Faster loading times",
+      "Simpler user interface",
+      "Better documentation",
+      "More customization options",
+      "Lower pricing tiers"
+    ]
+  }
+}

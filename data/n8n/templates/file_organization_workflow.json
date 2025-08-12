@@ -1,0 +1,295 @@
+{
+  "name": "File Organization Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "webhook/file-organization",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "File Organization Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "file-org-webhook"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.operation }}",
+              "operation": "equal",
+              "value2": "process_documents"
+            }
+          ]
+        }
+      },
+      "id": "operation-router",
+      "name": "Route by Operation",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "url": "http://localhost:8000/api/agents/file_organization/trigger",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer sk_codealchemy_n8n_2025"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "operation",
+              "value": "process_documents"
+            },
+            {
+              "name": "document_folder",
+              "value": "data/documents"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "trigger-file-org",
+      "name": "Trigger File Organization",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [680, 200],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "n8n-api-credentials",
+          "name": "CODE_ALCHEMY API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "url": "http://localhost:8000/api/agents/file_organization/trigger",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer sk_codealchemy_n8n_2025"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "operation",
+              "value": "detect_duplicates"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "trigger-duplicate-detection",
+      "name": "Trigger Duplicate Detection",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+        "position": [680, 400],
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "n8n-api-credentials",
+            "name": "CODE_ALCHEMY API"
+          }
+        }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.success }}",
+              "operation": "equal",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "success-check",
+      "name": "Check Success",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [900, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Process successful file organization\nconst result = $input.first();\n\n// Extract key information\nconst filesProcessed = result.json.files_processed || 0;\nconst duplicatesFound = result.json.duplicates_found || 0;\nconst processingTime = result.json.processing_time || 0;\n\n// Create summary\nconst summary = {\n  status: 'success',\n  operation: 'file_organization',\n  timestamp: new Date().toISOString(),\n  metrics: {\n    files_processed: filesProcessed,\n    duplicates_found: duplicatesFound,\n    processing_time: processingTime\n  },\n  message: `Successfully processed ${filesProcessed} files in ${processingTime}s`\n};\n\n// Log to console\nconsole.log('File Organization Summary:', summary);\n\nreturn summary;"
+      },
+      "id": "process-success",
+      "name": "Process Success",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 100]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Handle file organization failure\nconst result = $input.first();\n\nconst errorSummary = {\n  status: 'error',\n  operation: 'file_organization',\n  timestamp: new Date().toISOString(),\n  error: result.json.error || 'Unknown error',\n  message: 'File organization operation failed'\n};\n\n// Log error\nconsole.error('File Organization Error:', errorSummary);\n\nreturn errorSummary;"
+      },
+      "id": "process-error",
+      "name": "Process Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "url": "http://localhost:8000/webhook/system-alert",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer sk_codealchemy_n8n_2025"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "file_organization_complete"
+            },
+            {
+              "name": "data",
+              "value": "={{ $json }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "notify-completion",
+      "name": "Notify Completion",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1340, 200],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "n8n-api-credentials",
+          "name": "CODE_ALCHEMY API"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "File Organization Webhook": {
+      "main": [
+        [
+          {
+            "node": "Route by Operation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route by Operation": {
+      "main": [
+        [
+          {
+            "node": "Trigger File Organization",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Trigger Duplicate Detection",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger File Organization": {
+      "main": [
+        [
+          {
+            "node": "Check Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Success": {
+      "main": [
+        [
+          {
+            "node": "Process Success",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Process Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Success": {
+      "main": [
+        [
+          {
+            "node": "Notify Completion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Error": {
+      "main": [
+        [
+          {
+            "node": "Notify Completion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-01-28T00:00:00.000Z",
+      "updatedAt": "2025-01-28T00:00:00.000Z",
+      "id": "file-org-tag",
+      "name": "file-organization"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-01-28T00:00:00.000Z",
+  "versionId": "1"
+}

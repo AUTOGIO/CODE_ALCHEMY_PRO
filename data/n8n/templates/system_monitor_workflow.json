@@ -1,0 +1,179 @@
+{
+  "name": "CODE_ALCHEMY System Monitor",
+  "nodes": [
+    {
+      "id": "webhook",
+      "type": "n8n-nodes-base.webhook",
+      "position": [100, 100],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "system-alert",
+        "responseMode": "responseNode"
+      }
+    },
+    {
+      "id": "switch",
+      "type": "n8n-nodes-base.switch",
+      "position": [300, 100],
+      "parameters": {
+        "rules": {
+          "rules": [
+            {
+              "conditions": {
+                "string": [
+                  {
+                    "value1": "={{$json.alert_type}}",
+                    "operation": "equal",
+                    "value2": "high_cpu"
+                  }
+                ]
+              }
+            },
+            {
+              "conditions": {
+                "string": [
+                  {
+                    "value1": "={{$json.alert_type}}",
+                    "operation": "equal",
+                    "value2": "high_memory"
+                  }
+                ]
+              }
+            },
+            {
+              "conditions": {
+                "string": [
+                  {
+                    "value1": "={{$json.alert_type}}",
+                    "operation": "equal",
+                    "value2": "disk_full"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "high_cpu_action",
+      "type": "n8n-nodes-base.code",
+      "position": [500, 50],
+      "parameters": {
+        "jsCode": "// High CPU Alert Action\nconst alert = $input.first().json;\n\n// Log the alert\nconsole.log(`High CPU Alert: ${alert.message}`);\n\n// Return action data\nreturn [{\n  json: {\n    action: 'high_cpu_alert',\n    severity: alert.severity,\n    message: alert.message,\n    timestamp: new Date().toISOString(),\n    response: 'CPU optimization initiated'\n  }\n}];"
+      }
+    },
+    {
+      "id": "high_memory_action",
+      "type": "n8n-nodes-base.code",
+      "position": [500, 150],
+      "parameters": {
+        "jsCode": "// High Memory Alert Action\nconst alert = $input.first().json;\n\n// Log the alert\nconsole.log(`High Memory Alert: ${alert.message}`);\n\n// Return action data\nreturn [{\n  json: {\n    action: 'high_memory_alert',\n    severity: alert.severity,\n    message: alert.message,\n    timestamp: new Date().toISOString(),\n    response: 'Memory cleanup initiated'\n  }\n}];"
+      }
+    },
+    {
+      "id": "disk_full_action",
+      "type": "n8n-nodes-base.code",
+      "position": [500, 250],
+      "parameters": {
+        "jsCode": "// Disk Full Alert Action\nconst alert = $input.first().json;\n\n// Log the alert\nconsole.log(`Disk Full Alert: ${alert.message}`);\n\n// Return action data\nreturn [{\n  json: {\n    action: 'disk_full_alert',\n    severity: alert.severity,\n    message: alert.message,\n    timestamp: new Date().toISOString(),\n    response: 'Disk cleanup initiated'\n  }\n}];"
+      }
+    },
+    {
+      "id": "merge",
+      "type": "n8n-nodes-base.merge",
+      "position": [700, 150],
+      "parameters": {}
+    },
+    {
+      "id": "log_action",
+      "type": "n8n-nodes-base.code",
+      "position": [900, 150],
+      "parameters": {
+        "jsCode": "// Log all actions\nconst actions = $input.all();\n\n// Log each action\nactions.forEach(action => {\n  console.log(`Action: ${action.json.action}, Response: ${action.json.response}`);\n});\n\n// Return summary\nreturn [{\n  json: {\n    summary: 'System monitoring actions completed',\n    actions_count: actions.length,\n    timestamp: new Date().toISOString()\n  }\n}];"
+      }
+    }
+  ],
+  "connections": {
+    "webhook": {
+      "main": [
+        [
+          {
+            "node": "switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "switch": {
+      "main": [
+        [
+          {
+            "node": "high_cpu_action",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "high_memory_action",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "disk_full_action",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "high_cpu_action": {
+      "main": [
+        [
+          {
+            "node": "merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "high_memory_action": {
+      "main": [
+        [
+          {
+            "node": "merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "disk_full_action": {
+      "main": [
+        [
+          {
+            "node": "merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "merge": {
+      "main": [
+        [
+          {
+            "node": "log_action",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

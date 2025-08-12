@@ -1,0 +1,17 @@
+# Sample Video Project File
+# This is a placeholder for demonstration
+# In real usage, this would be an actual video file
+
+Project: Final Video Production
+Type: 4K Video
+Duration: 5 minutes
+Quality: High Definition
+Status: Ready for Review
+
+This file demonstrates the file organization automation.
+When uploaded, it will be automatically:
+1. Categorized as video content
+2. Organized into video/projects folder
+3. Analyzed for quality metrics
+4. Backed up automatically
+5. Client report generated

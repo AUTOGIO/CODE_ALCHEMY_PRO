@@ -1,0 +1,67 @@
+Small Clothes Store – Quarterly Finance Report
+Reporting Period: Q2 2025 (Apr 1 – Jun 30 2025)
+Daily Sales (average): $10,000
+Number of Days in Period: 90
+
+────────────────────────────────────────
+1. SALES SUMMARY
+────────────────────────────────────────
+Gross Sales....................................... $900,000
+
+────────────────────────────────────────
+2. COST OF GOODS SOLD (COGS)
+────────────────────────────────────────
+Merchandise Purchases (40 % of sales)............. $360,000
+GROSS PROFIT...................................... $540,000
+
+────────────────────────────────────────
+3. OPERATING EXPENSES
+────────────────────────────────────────
+Rent (3 × $5,000)................................. $15,000
+Salaries (8 staff × $2,500 × 3 mo)................ $60,000
+Utilities (3 × $1,000)............................ $3,000
+Marketing & Advertising (5 % of sales)............ $45,000
+Miscellaneous & Supplies.......................... $5,000
+TOTAL OPERATING EXPENSES.......................... $128,000
+
+────────────────────────────────────────
+4. OPERATING INCOME
+────────────────────────────────────────
+OPERATING PROFIT.................................. $412,000
+
+────────────────────────────────────────
+5. OTHER INCOME & EXPENSES
+────────────────────────────────────────
+None.............................................. $0
+
+────────────────────────────────────────
+6. PRE‑TAX INCOME
+────────────────────────────────────────
+.................................................. $412,000
+
+────────────────────────────────────────
+7. TAX EXPENSE (25 %)
+────────────────────────────────────────
+.................................................. $103,000
+
+────────────────────────────────────────
+8. NET INCOME
+────────────────────────────────────────
+.................................................. $309,000
+
+────────────────────────────────────────
+9. KEY RATIOS
+────────────────────────────────────────
+Gross Margin...................................... 60.0 %
+Operating Margin.................................. 45.8 %
+Net Margin........................................ 34.3 %
+
+────────────────────────────────────────
+10. MANAGEMENT NOTES
+────────────────────────────────────────
+• Sales remained steady at $10 k/day across the quarter.
+• Marketing spend (5 %) aligns with industry benchmarks; consider experimenting with targeted social ads to boost foot traffic.
+• Cash position remains healthy; explore seasonal inventory expansion for next quarter to leverage high gross margin.
+• Monitor salary costs; a 3 % merit increase next quarter would raise payroll by ~$1.8 k/month.
+
+End of Report.

@@ -1,0 +1,34 @@
+[
+  {
+    "type": "Vulnerability Alert",
+    "severity": "high",
+    "title": "High Severity Vulnerability: Outdated Dependencies",
+    "description": "Python packages with known security vulnerabilities",
+    "recommendation": "Update to latest versions",
+    "timestamp": "2025-07-28T01:26:38.135600"
+  },
+  {
+    "type": "Vulnerability Alert",
+    "severity": "high",
+    "title": "High Severity Vulnerability: Weak File Permissions",
+    "description": "Sensitive files with overly permissive access",
+    "recommendation": "Restrict file permissions to 600",
+    "timestamp": "2025-07-28T01:26:38.135601"
+  },
+  {
+    "type": "Threat Alert",
+    "severity": "medium",
+    "title": "Security Threat Detected: Suspicious Network Activity",
+    "description": "Multiple failed connection attempts to external APIs",
+    "recommendation": "Investigate and respond immediately",
+    "timestamp": "2025-07-28T01:26:38.134571"
+  },
+  {
+    "type": "Threat Alert",
+    "severity": "medium",
+    "title": "Security Threat Detected: High CPU Usage",
+    "description": "Sustained high CPU usage (>80%) for extended periods",
+    "recommendation": "Investigate and respond immediately",
+    "timestamp": "2025-07-28T01:26:38.134580"
+  }
+]

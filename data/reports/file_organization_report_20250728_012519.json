@@ -1,0 +1,204 @@
+{
+  "timestamp": "2025-07-28T01:25:19.052293",
+  "summary": {
+    "files_organized": 23,
+    "duplicates_found": 5,
+    "total_size_bytes": 5248,
+    "total_size_mb": 0.01
+  },
+  "type_distribution": {
+    "text": 4,
+    "application": 11,
+    "unknown": 2,
+    "video": 2,
+    "image": 2,
+    "audio": 2
+  },
+  "organized_files": [
+    {
+      "original": "data/documents/employee_survey.csv",
+      "organized": "data/documents/document/employee_survey_1.csv",
+      "type": "text",
+      "size": 493
+    },
+    {
+      "original": "data/documents/financial_report_2024.txt",
+      "organized": "data/documents/document/financial_report_2024_1.txt",
+      "type": "text",
+      "size": 637
+    },
+    {
+      "original": "data/documents/customer_feedback.json",
+      "organized": "data/documents/other/customer_feedback_1.json",
+      "type": "application",
+      "size": 756
+    },
+    {
+      "original": "data/documents/market_analysis.md",
+      "organized": "data/documents/other/market_analysis_1.md",
+      "type": "unknown",
+      "size": 1158
+    },
+    {
+      "original": "data/documents/project_timeline.yaml",
+      "organized": "data/documents/other/project_timeline_1.yaml",
+      "type": "unknown",
+      "size": 1038
+    },
+    {
+      "original": "data/documents/video/video_sample_2_1.mp4",
+      "organized": "data/documents/video/video_sample_2_1_1.mp4",
+      "type": "video",
+      "size": 63
+    },
+    {
+      "original": "data/documents/video/video_sample_1_1.mp4",
+      "organized": "data/documents/video/video_sample_1_1_1.mp4",
+      "type": "video",
+      "size": 63
+    },
+    {
+      "original": "data/documents/other/data_file_1_1.json",
+      "organized": "data/documents/other/data_file_1_1_1.json",
+      "type": "application",
+      "size": 62
+    },
+    {
+      "original": "data/documents/other/archive_1_1.zip",
+      "organized": "data/documents/other/archive_1_1_1.zip",
+      "type": "application",
+      "size": 65
+    },
+    {
+      "original": "data/documents/other/presentation_2_1.pptx",
+      "organized": "data/documents/other/presentation_2_1_1.pptx",
+      "type": "application",
+      "size": 70
+    },
+    {
+      "original": "data/documents/other/archive_2_1.zip",
+      "organized": "data/documents/other/archive_2_1_1.zip",
+      "type": "application",
+      "size": 65
+    },
+    {
+      "original": "data/documents/other/spreadsheet_1_1.xlsx",
+      "organized": "data/documents/other/spreadsheet_1_1_1.xlsx",
+      "type": "application",
+      "size": 69
+    },
+    {
+      "original": "data/documents/other/presentation_1_1.pptx",
+      "organized": "data/documents/other/presentation_1_1_1.pptx",
+      "type": "application",
+      "size": 70
+    },
+    {
+      "original": "data/documents/other/test_document_2_1.pdf",
+      "organized": "data/documents/other/test_document_2_1_1.pdf",
+      "type": "application",
+      "size": 66
+    },
+    {
+      "original": "data/documents/other/data_file_2_1.json",
+      "organized": "data/documents/other/data_file_2_1_1.json",
+      "type": "application",
+      "size": 62
+    },
+    {
+      "original": "data/documents/other/spreadsheet_2_1.xlsx",
+      "organized": "data/documents/other/spreadsheet_2_1_1.xlsx",
+      "type": "application",
+      "size": 69
+    },
+    {
+      "original": "data/documents/other/test_document_1_1.pdf",
+      "organized": "data/documents/other/test_document_1_1_1.pdf",
+      "type": "application",
+      "size": 66
+    },
+    {
+      "original": "data/documents/document/code_script_2_1.py",
+      "organized": "data/documents/document/code_script_2_1_1.py",
+      "type": "text",
+      "size": 62
+    },
+    {
+      "original": "data/documents/document/code_script_1_1.py",
+      "organized": "data/documents/document/code_script_1_1_1.py",
+      "type": "text",
+      "size": 62
+    },
+    {
+      "original": "data/documents/image/sample_image_2_1.jpg",
+      "organized": "data/documents/image/sample_image_2_1_1.jpg",
+      "type": "image",
+      "size": 63
+    },
+    {
+      "original": "data/documents/image/sample_image_1_1.jpg",
+      "organized": "data/documents/image/sample_image_1_1_1.jpg",
+      "type": "image",
+      "size": 63
+    },
+    {
+      "original": "data/documents/audio/audio_file_2_1.mp3",
+      "organized": "data/documents/audio/audio_file_2_1_1.mp3",
+      "type": "audio",
+      "size": 63
+    },
+    {
+      "original": "data/documents/audio/audio_file_1_1.mp3",
+      "organized": "data/documents/audio/audio_file_1_1_1.mp3",
+      "type": "audio",
+      "size": 63
+    }
+  ],
+  "duplicates": [
+    {
+      "name": "customer_feedback.json",
+      "path": "data/documents/other/customer_feedback.json",
+      "size": 756,
+      "type": "application",
+      "extension": ".json",
+      "modified": "2025-07-28T00:52:29.378222",
+      "hash": "c4aa4eb35430f8a0682b03006667e6478551b2cfb9f50ea9a921931a139493c6"
+    },
+    {
+      "name": "market_analysis.md",
+      "path": "data/documents/other/market_analysis.md",
+      "size": 1158,
+      "type": "unknown",
+      "extension": ".md",
+      "modified": "2025-07-28T00:52:29.378456",
+      "hash": "b8aa5ef488679628be1c509315a0fa198130eb7632caf628a3e79ce9db4caac7"
+    },
+    {
+      "name": "project_timeline.yaml",
+      "path": "data/documents/other/project_timeline.yaml",
+      "size": 1038,
+      "type": "unknown",
+      "extension": ".yaml",
+      "modified": "2025-07-28T00:52:29.380523",
+      "hash": "95fbcd5ed7836771b5342420f9b9e4b1d1fec4f6c85e5a1fc5f1ac9fae27d7d6"
+    },
+    {
+      "name": "employee_survey.csv",
+      "path": "data/documents/document/employee_survey.csv",
+      "size": 493,
+      "type": "text",
+      "extension": ".csv",
+      "modified": "2025-07-28T00:52:29.378928",
+      "hash": "a1bbf160b7c2bb8d57840c7d80ae0d90b36dc624b0bce908c44af55b69f52164"
+    },
+    {
+      "name": "financial_report_2024.txt",
+      "path": "data/documents/document/financial_report_2024.txt",
+      "size": 637,
+      "type": "text",
+      "extension": ".txt",
+      "modified": "2025-07-28T00:52:29.377831",
+      "hash": "586d222d2abbdd68cce8cd1e64d470ebb5dbaf7245787b873337790f0053160b"
+    }
+  ]
+}

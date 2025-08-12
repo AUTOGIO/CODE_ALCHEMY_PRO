@@ -1,0 +1,181 @@
+{
+  "project": "Security Monitoring & Threat Detection",
+  "timestamp": "2025-07-28T01:26:38.135022",
+  "system_info": {
+    "hostname": "Eduardos-iMac.local",
+    "platform": "darwin",
+    "python_version": "3.9.6 (default, Apr 30 2025, 02:07:17) \n[Clang 17.0.0 (clang-1700.0.13.5)]",
+    "cpu_count": 8,
+    "memory_total": 17179869184,
+    "disk_usage": 14.2
+  },
+  "scan_results": {
+    "vulnerabilities": {
+      "high": [
+        {
+          "id": "VULN-001",
+          "type": "Outdated Dependencies",
+          "description": "Python packages with known security vulnerabilities",
+          "affected_packages": [
+            "urllib3",
+            "requests"
+          ],
+          "severity": "high",
+          "recommendation": "Update to latest versions"
+        },
+        {
+          "id": "VULN-002",
+          "type": "Weak File Permissions",
+          "description": "Sensitive files with overly permissive access",
+          "affected_files": [
+            "data/documents/",
+            "config/"
+          ],
+          "severity": "high",
+          "recommendation": "Restrict file permissions to 600"
+        }
+      ],
+      "medium": [
+        {
+          "id": "VULN-003",
+          "type": "Missing SSL Verification",
+          "description": "HTTP requests without SSL certificate verification",
+          "affected_code": [
+            "src/integrations/"
+          ],
+          "severity": "medium",
+          "recommendation": "Enable SSL verification for all requests"
+        },
+        {
+          "id": "VULN-004",
+          "type": "Hardcoded Credentials",
+          "description": "API tokens and credentials in code",
+          "affected_files": [
+            "src/core/config.py"
+          ],
+          "severity": "medium",
+          "recommendation": "Use environment variables for all credentials"
+        }
+      ],
+      "low": [
+        {
+          "id": "VULN-005",
+          "type": "Debug Mode Enabled",
+          "description": "Debug mode is enabled in production",
+          "affected_config": [
+            "ENVIRONMENT=production",
+            "DEBUG_MODE=true"
+          ],
+          "severity": "low",
+          "recommendation": "Disable debug mode in production"
+        }
+      ]
+    },
+    "threat_indicators": [
+      {
+        "type": "Suspicious Network Activity",
+        "description": "Multiple failed connection attempts to external APIs",
+        "timestamp": "2025-07-28T01:26:38.134571",
+        "severity": "medium"
+      },
+      {
+        "type": "Unusual File Access",
+        "description": "Multiple rapid file access patterns in data directory",
+        "timestamp": "2025-07-28T01:26:38.134579",
+        "severity": "low"
+      },
+      {
+        "type": "High CPU Usage",
+        "description": "Sustained high CPU usage (>80%) for extended periods",
+        "timestamp": "2025-07-28T01:26:38.134580",
+        "severity": "medium"
+      }
+    ],
+    "compliance_issues": [
+      {
+        "type": "Data Privacy",
+        "description": "User data not properly encrypted at rest",
+        "compliance_standard": "GDPR",
+        "severity": "high"
+      },
+      {
+        "type": "Access Control",
+        "description": "Missing role-based access control implementation",
+        "compliance_standard": "SOC2",
+        "severity": "medium"
+      },
+      {
+        "type": "Audit Logging",
+        "description": "Insufficient audit logging for security events",
+        "compliance_standard": "ISO27001",
+        "severity": "medium"
+      }
+    ]
+  },
+  "monitoring_data": {
+    "network_activity": {
+      "active_connections": 15,
+      "failed_attempts": 3,
+      "suspicious_ips": [
+        "192.168.1.100",
+        "10.0.0.50"
+      ],
+      "data_transfer": "2.3 GB"
+    },
+    "system_activity": {
+      "cpu_usage": 23.8,
+      "memory_usage": 70.5,
+      "disk_io": "High",
+      "process_count": 538
+    },
+    "file_activity": {
+      "files_accessed": 45,
+      "files_modified": 12,
+      "files_created": 8,
+      "files_deleted": 2
+    },
+    "user_activity": {
+      "active_sessions": 3,
+      "failed_logins": 1,
+      "privilege_escalations": 0,
+      "suspicious_commands": 0
+    }
+  },
+  "threat_analysis": {
+    "risk_assessment": {
+      "overall_risk_score": 7.2,
+      "risk_level": "medium",
+      "factors": [
+        "High severity vulnerabilities present",
+        "Suspicious network activity detected",
+        "Compliance issues identified"
+      ]
+    },
+    "immediate_actions": [
+      "Update vulnerable dependencies",
+      "Restrict file permissions",
+      "Enable SSL verification",
+      "Implement proper credential management"
+    ],
+    "long_term_recommendations": [
+      "Implement comprehensive security monitoring",
+      "Add intrusion detection system",
+      "Establish security incident response plan",
+      "Conduct regular security audits",
+      "Implement data encryption at rest"
+    ],
+    "compliance_remediation": [
+      "Implement data encryption for GDPR compliance",
+      "Add role-based access control for SOC2",
+      "Enhance audit logging for ISO27001",
+      "Establish data retention policies"
+    ]
+  },
+  "summary": {
+    "total_vulnerabilities": 5,
+    "high_risk_vulnerabilities": 2,
+    "threat_indicators": 3,
+    "compliance_issues": 3,
+    "overall_risk_score": 7.2
+  }
+}

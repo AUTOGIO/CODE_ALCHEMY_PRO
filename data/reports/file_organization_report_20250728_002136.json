@@ -1,0 +1,127 @@
+{
+  "timestamp": "2025-07-28T00:21:36.745730",
+  "summary": {
+    "files_organized": 18,
+    "duplicates_found": 0,
+    "total_size_bytes": 1166,
+    "total_size_mb": 0.0
+  },
+  "type_distribution": {
+    "video": 2,
+    "application": 10,
+    "audio": 2,
+    "text": 2,
+    "image": 2
+  },
+  "organized_files": [
+    {
+      "original": "data/documents/video_sample.mp4",
+      "organized": "data/documents/video/video_sample_1.mp4",
+      "type": "video",
+      "size": 63
+    },
+    {
+      "original": "data/documents/spreadsheet.xlsx",
+      "organized": "data/documents/other/spreadsheet_1.xlsx",
+      "type": "application",
+      "size": 69
+    },
+    {
+      "original": "data/documents/audio_file.mp3",
+      "organized": "data/documents/audio/audio_file_1.mp3",
+      "type": "audio",
+      "size": 63
+    },
+    {
+      "original": "data/documents/code_script.py",
+      "organized": "data/documents/document/code_script_1.py",
+      "type": "text",
+      "size": 62
+    },
+    {
+      "original": "data/documents/presentation.pptx",
+      "organized": "data/documents/other/presentation_1.pptx",
+      "type": "application",
+      "size": 70
+    },
+    {
+      "original": "data/documents/test_document.pdf",
+      "organized": "data/documents/other/test_document_1.pdf",
+      "type": "application",
+      "size": 66
+    },
+    {
+      "original": "data/documents/data_file.json",
+      "organized": "data/documents/other/data_file_1.json",
+      "type": "application",
+      "size": 62
+    },
+    {
+      "original": "data/documents/archive.zip",
+      "organized": "data/documents/other/archive_1.zip",
+      "type": "application",
+      "size": 65
+    },
+    {
+      "original": "data/documents/sample_image.jpg",
+      "organized": "data/documents/image/sample_image_1.jpg",
+      "type": "image",
+      "size": 63
+    },
+    {
+      "original": "data/documents/video/video_sample.mp4",
+      "organized": "data/documents/video/video_sample_2.mp4",
+      "type": "video",
+      "size": 63
+    },
+    {
+      "original": "data/documents/other/spreadsheet.xlsx",
+      "organized": "data/documents/other/spreadsheet_2.xlsx",
+      "type": "application",
+      "size": 69
+    },
+    {
+      "original": "data/documents/other/presentation.pptx",
+      "organized": "data/documents/other/presentation_2.pptx",
+      "type": "application",
+      "size": 70
+    },
+    {
+      "original": "data/documents/other/test_document.pdf",
+      "organized": "data/documents/other/test_document_2.pdf",
+      "type": "application",
+      "size": 66
+    },
+    {
+      "original": "data/documents/other/data_file.json",
+      "organized": "data/documents/other/data_file_2.json",
+      "type": "application",
+      "size": 62
+    },
+    {
+      "original": "data/documents/other/archive.zip",
+      "organized": "data/documents/other/archive_2.zip",
+      "type": "application",
+      "size": 65
+    },
+    {
+      "original": "data/documents/document/code_script.py",
+      "organized": "data/documents/document/code_script_2.py",
+      "type": "text",
+      "size": 62
+    },
+    {
+      "original": "data/documents/image/sample_image.jpg",
+      "organized": "data/documents/image/sample_image_2.jpg",
+      "type": "image",
+      "size": 63
+    },
+    {
+      "original": "data/documents/audio/audio_file.mp3",
+      "organized": "data/documents/audio/audio_file_2.mp3",
+      "type": "audio",
+      "size": 63
+    }
+  ],
+  "duplicates": []
+}
