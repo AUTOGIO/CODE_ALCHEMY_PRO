@@ -1,0 +1,13 @@
+{
+  "project_name": "Mobile_App_v2.0",
+  "project_type": "software_project",
+  "client_name": "Startup_XYZ",
+  "created_date": "2025-08-17T10:14:33.566916",
+  "status": "active",
+  "phases": [
+    "01-requirements",
+    "02-development",
+    "03-testing",
+    "04-deployment"
+  ]
+}

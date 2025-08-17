@@ -1,0 +1,15 @@
+{
+  "name": "Marketing Campaign",
+  "structure": [
+    "01-brief",
+    "02-creative",
+    "03-production",
+    "04-results"
+  ],
+  "files": [
+    "project_brief.docx",
+    "timeline.xlsx",
+    "budget_template.xlsx",
+    "creative_brief.md"
+  ]
+}

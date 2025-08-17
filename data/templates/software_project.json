@@ -1,0 +1,15 @@
+{
+  "name": "Software Development",
+  "structure": [
+    "01-requirements",
+    "02-development",
+    "03-testing",
+    "04-deployment"
+  ],
+  "files": [
+    "requirements.md",
+    "technical_specs.md",
+    "test_plan.md",
+    "deployment_guide.md"
+  ]
+}

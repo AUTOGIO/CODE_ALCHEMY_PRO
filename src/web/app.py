@@ -1,6 +1,6 @@
 """
-CODE_ALCHEMY Professional Web Interface
-Modern, responsive dashboard with real-time monitoring
+SMART WORKSPACE Professional Web Interface
+Focused dashboard for File Organization, Productivity, and Workflow Automation
 """
 
 import streamlit as st
@@ -13,20 +13,28 @@ import threading
 from pathlib import Path
 import sys
 
-# Add project root to path
-project_root = Path(__file__).parent.parent.parent
-sys.path.append(str(project_root))
+# Import components after path setup
+try:
+    from core.config import config
+    from web.components.dashboard_controls import DashboardControls
+    from web.components.agent_manager import AgentManager
+    from web.components.node_red_lite import NodeRedLite
+    # from web.components.model_manager import ModelManager  # Removed - focusing on workflow automation
+    from web.components.integration_controller import IntegrationController
+    # Performance Analyzer removed - no real-time monitoring
+    from web.components.settings_panel import SettingsPanel
+except ImportError as e:
+    st.error(f"Failed to import components: {e}")
+    config = None
+    DashboardControls = None
+    AgentManager = None
+    # ModelManager = None  # Removed - focusing on workflow automation
+    IntegrationController = None
+    # PerformanceAnalyzer = None
+    SettingsPanel = None
 
-from src.core.config import config
-from src.web.components.dashboard_controls import DashboardControls
-from src.web.components.agent_manager import AgentManager
-from src.web.components.model_manager import ModelManager
-from src.web.components.integration_controller import IntegrationController
-from src.web.components.performance_analyzer import PerformanceAnalyzer
-from src.web.components.settings_panel import SettingsPanel
-
-class CodeAlchemyApp:
-    """Professional CODE_ALCHEMY web application"""
+class SmartWorkspaceApp:
+    """Professional SMART WORKSPACE web application"""
     
     def __init__(self):
         self.setup_page_config()
@@ -36,14 +44,14 @@ class CodeAlchemyApp:
     def setup_page_config(self):
         """Configure Streamlit page settings"""
         st.set_page_config(
-            page_title="CODE_ALCHEMY Professional",
+            page_title="SMART WORKSPACE Professional",
             page_icon="🧪",
             layout="wide",
             initial_sidebar_state="expanded",
             menu_items={
-                'Get Help': 'https://github.com/AUTOGIO/CODE_ALCHEMY',
-                'Report a bug': "https://github.com/AUTOGIO/CODE_ALCHEMY/issues",
-                'About': "# CODE_ALCHEMY Professional\nAI-Powered Desktop Intelligence System"
+                'Get Help': 'https://github.com/AUTOGIO/SMART_WORKSPACE',
+                'Report a bug': "https://github.com/AUTOGIO/SMART_WORKSPACE/issues",
+                'About': "# SMART WORKSPACE Professional\nAI-Powered Workspace Intelligence System"
             }
         )
     
@@ -65,9 +73,10 @@ class CodeAlchemyApp:
         """Setup application components"""
         self.dashboard_controls = DashboardControls()
         self.agent_manager = AgentManager()
-        self.model_manager = ModelManager()
+        self.node_red_lite = NodeRedLite()
+        # self.model_manager = ModelManager()  # Removed - focusing on workflow automation
         self.integration_controller = IntegrationController()
-        self.performance_analyzer = PerformanceAnalyzer()
+        # self.performance_analyzer = PerformanceAnalyzer()  # Removed - no real-time monitoring
         self.settings_panel = SettingsPanel()
     
     def run(self):
@@ -174,9 +183,9 @@ class CodeAlchemyApp:
             [
                 "🎛️ Control Panel",
                 "🤖 Agent Manager",
-                "🧠 Model Manager",
                 "🔗 Integration Controller",
-                "📈 Performance Analyzer",
+                "🔄 Workflow Automation",
+                # "📈 Performance Analyzer",  # Removed - no real-time monitoring
                 "⚙️ Settings Panel"
             ],
             key="navigation"
@@ -186,9 +195,9 @@ class CodeAlchemyApp:
         page_mapping = {
             "🎛️ Control Panel": "control_panel",
             "🤖 Agent Manager": "agent_manager", 
-            "🧠 Model Manager": "model_manager",
             "🔗 Integration Controller": "integration_controller",
-            "📈 Performance Analyzer": "performance_analyzer",
+            "🔄 Workflow Automation": "workflow_automation",
+            # "📈 Performance Analyzer": "performance_analyzer",  # Removed - no real-time monitoring
             "⚙️ Settings Panel": "settings_panel"
         }
         
@@ -223,12 +232,12 @@ class CodeAlchemyApp:
             self.dashboard_controls.render_control_panel()
         elif page == 'agent_manager':
             self.agent_manager.render_agent_manager()
-        elif page == 'model_manager':
-            self.model_manager.render_model_manager()
         elif page == 'integration_controller':
             self.integration_controller.render_integration_controller()
-        elif page == 'performance_analyzer':
-            self.performance_analyzer.render_performance_analyzer()
+        elif page == 'workflow_automation':
+            self.node_red_lite.render_node_red_lite()
+        # elif page == 'performance_analyzer':  # Removed - no real-time monitoring
+        #     self.performance_analyzer.render_performance_analyzer()
         elif page == 'settings_panel':
             self.settings_panel.render_settings_panel()
     

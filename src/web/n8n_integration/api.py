@@ -337,35 +337,8 @@ class N8NIntegrationAPI:
                 logger.error(f"Get agents history error: {e}")
                 raise HTTPException(status_code=500, detail=str(e))
         
-        # Monitoring endpoints
-        @self.app.get("/api/monitoring/system")
-        async def get_system_metrics(
-            request: Request,
-            api_key: str = Depends(self.security_manager.get_api_key_from_header)
-        ):
-            """Get system monitoring metrics"""
-            try:
-                # Validate security
-                self.security_manager.validate_ip_address(request)
-                self.security_manager.check_rate_limit(api_key)
-                
-                # Return mock system metrics (replace with real implementation)
-                system_metrics = {
-                    "cpu_percent": 45.2,
-                    "memory_percent": 67.8,
-                    "disk_percent": 23.1,
-                    "uptime": "2 days, 5 hours",
-                    "apple_silicon": {
-                        "neural_engine": "active",
-                        "unified_memory": "12.3 GB used"
-                    }
-                }
-                
-                return {"system": system_metrics}
-                
-            except Exception as e:
-                logger.error(f"Get system metrics error: {e}")
-                raise HTTPException(status_code=500, detail=str(e))
+        # Monitoring endpoints removed - no real-time data collection
+        # @self.app.get("/api/monitoring/system") - Removed
         
         # Webhook management endpoints
         @self.app.get("/api/webhooks/history")

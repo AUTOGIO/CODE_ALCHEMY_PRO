@@ -1,6 +1,6 @@
-# 🧪 CODE_ALCHEMY Professional
+# 🧪 SMART WORKSPACE Professional
 
-> **AI-Powered Desktop Intelligence System for Apple Silicon M3**
+> **AI-Powered Workspace Intelligence System for Apple Silicon M3**
 
 [![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/AUTOGIO/CODE_ALCHEMY)
 [![Platform](https://img.shields.io/badge/platform-macOS%20M3-green.svg)](https://www.apple.com/mac/)
@@ -9,18 +9,17 @@
 
 ## 🚀 Overview
 
-CODE_ALCHEMY Professional is a sophisticated Multi-Agent System designed for intelligent productivity optimization on Apple Silicon iMac M3. The system leverages Apple Neural Engine optimizations, local AI processing with LM Studio integration, and real-time learning algorithms to provide personalized productivity enhancement while maintaining user privacy through local-first processing.
+SMART WORKSPACE Professional is a streamlined Multi-Agent System focused on three core areas: **File Organization & Analysis**, **Productivity Enhancement**, and **Workflow Automation**. The system leverages local AI processing with LM Studio integration and N8N workflow automation to provide intelligent file management and productivity optimization while maintaining user privacy through local-first processing.
 
 ## ✨ Key Features
 
-- **🤖 Multi-Agent System**: 6 specialized AI agents working collaboratively
+- **🤖 Multi-Agent System**: 3 specialized AI agents focused on core workflows
 - **🧠 LM Studio Integration**: Support for 16+ local models
-- **📊 Professional Dashboard**: Real-time monitoring and analytics
+- **📊 Professional Dashboard**: Static monitoring and analytics (no real-time updates)
 - **🔗 MCP Integration**: Seamless Cursor integration via Model Control Protocol
-- **🍎 M3 Optimization**: Apple Neural Engine and unified memory optimization
 - **🔒 Privacy-First**: Local processing with no data transmission
 - **📁 Smart Organization**: AI-powered file categorization and management
-- **💻 Code Intelligence**: Advanced code analysis and suggestions
+- **🔄 Workflow Automation**: N8N integration for automated file processing
 
 ## 🏗️ Architecture
 
@@ -98,37 +97,14 @@ CODE_ALCHEMY_PRO/
   - Key information extraction
   - Multimodal content processing
 
-#### **Code Intelligence Agent**
-- **Purpose**: Code analysis and optimization
-- **Features**:
-  - Code quality assessment
-  - Performance optimization suggestions
-  - Security vulnerability detection
-  - Language-specific analysis
-
 #### **Productivity Agent**
 - **Purpose**: Workflow optimization and task management
 - **Features**:
-  - Task prioritization
-  - Time tracking analysis
+  - Task prioritization and analysis
+  - Time tracking and efficiency metrics
   - Workflow automation suggestions
-  - Performance metrics
-
-#### **Security Agent**
-- **Purpose**: System security monitoring
-- **Features**:
-  - File integrity checking
-  - Security vulnerability scanning
-  - Access pattern analysis
-  - Threat detection
-
-#### **Apple Silicon Detector**
-- **Purpose**: Hardware optimization and M3-specific tuning
-- **Features**:
-  - Neural Engine utilization
-  - Unified memory optimization
-  - Performance monitoring
-  - Hardware-specific tuning
+  - N8N integration and automation
+  - Performance optimization recommendations
 
 ### 🧠 Model Management
 
@@ -142,29 +118,27 @@ CODE_ALCHEMY_PRO/
 #### **Model Selection**
 - **File Organization**: DeepSeek-R1 for categorization
 - **Content Analysis**: Llama-3.1 for document understanding
-- **Code Intelligence**: Specialized models per language
-- **Productivity**: Llama-3.1 for workflow analysis
-- **Security**: TinyLlama for fast security checks
+- **Productivity**: Llama-3.1 for workflow analysis and N8N automation
 
 ### 📊 Dashboard Features
 
-#### **Real-Time Monitoring**
-- **System Resources**: CPU, memory, disk usage
-- **Apple Silicon Metrics**: Neural Engine, unified memory
-- **Agent Activity**: Real-time task completion tracking
-- **Model Performance**: Inference speed and quality metrics
+#### **Static Monitoring**
+- **System Resources**: Basic system information (no live updates)
+- **Apple Silicon Metrics**: Static hardware information
+- **Agent Activity**: Task completion through reports
+- **Model Performance**: Performance analysis through static data
 
 #### **File Management**
 - **Upload Interface**: Drag-and-drop file upload
-- **Organization View**: Real-time file categorization
+- **Organization View**: File categorization through reports
 - **Duplicate Detection**: Visual duplicate identification
 - **Processing Reports**: Detailed analysis reports
 
 #### **Agent Control**
 - **Enable/Disable**: Control individual agents
-- **Performance Metrics**: Agent efficiency tracking
-- **Task Queue**: Monitor pending tasks
-- **Error Handling**: Real-time error reporting
+- **Performance Metrics**: Agent efficiency through reports
+- **Task Queue**: Task status through reports
+- **Error Handling**: Error reporting through logs
 
 ## 🔧 Configuration
 
@@ -222,7 +196,7 @@ export MODELS_PATH="/Volumes/MICRO/models"
    ```
 
 3. **Monitor organization**
-   - Check dashboard for real-time progress
+   - Check dashboard for progress updates
    - View organized files in `data/documents/`
    - Review reports in `data/reports/`
 

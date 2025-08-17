@@ -1,0 +1,15 @@
+{
+  "name": "Consulting Project",
+  "structure": [
+    "01-discovery",
+    "02-analysis",
+    "03-recommendations",
+    "04-implementation"
+  ],
+  "files": [
+    "project_scope.docx",
+    "analysis_framework.xlsx",
+    "recommendations_presentation.pptx",
+    "implementation_plan.md"
+  ]
+}

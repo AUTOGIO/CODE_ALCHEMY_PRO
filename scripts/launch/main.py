@@ -24,7 +24,18 @@ except ImportError:
 def launch_dashboard():
     """Launch the Streamlit dashboard"""
     print("🚀 Launching CODE_ALCHEMY_PRO Dashboard...")
-    dashboard_main()
+    try:
+        # Try the simple working dashboard first
+        from web.simple_app import main as simple_dashboard_main
+        simple_dashboard_main()
+    except ImportError:
+        try:
+            # Fallback to original dashboard
+            dashboard_main()
+        except Exception as e:
+            print(f"❌ Dashboard launch failed: {e}")
+            print("💡 Try running: streamlit run src/web/simple_app.py")
+            sys.exit(1)
 
 
 def launch_n8n_integration():
@@ -107,11 +118,10 @@ Examples:
         elif args.component == "agents":
             launch_agent_system()
         elif args.component == "all":
-                    msg = "🚀 Launching all CODE_ALCHEMY_PRO components..."
-        print(msg)
-        launch_agent_system()
-        launch_n8n_integration()
-        launch_dashboard()
+            print("🚀 Launching all CODE_ALCHEMY_PRO components...")
+            launch_agent_system()
+            launch_n8n_integration()
+            launch_dashboard()
     except KeyboardInterrupt:
         print("\n⏹️  Shutting down gracefully...")
     except Exception as e:

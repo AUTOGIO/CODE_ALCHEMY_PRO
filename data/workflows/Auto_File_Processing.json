@@ -1,0 +1,15 @@
+{
+  "name": "Auto_File_Processing",
+  "type": "file_processing",
+  "created_date": "2025-08-17T10:14:33.567014",
+  "triggers": [
+    "file_added",
+    "file_modified"
+  ],
+  "actions": [
+    "categorize_file",
+    "apply_template",
+    "trigger_n8n"
+  ],
+  "enabled": true
+}

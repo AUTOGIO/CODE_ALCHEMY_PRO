@@ -50,24 +50,24 @@ class AgentConfiguration:
         "model": "Meta-Llama-3.1-8B-Instruct-Q6_K.gguf",
         "multimodal": True
     })
-    code_intelligence: Dict[str, Any] = field(default_factory=lambda: {
-        "enabled": True,
-        "model": "DeepSeek-R1-Distill-Llama-8B-Q4_K_M.gguf",
-        "specialized_models": {
-            "python": "Mistral-7B-Instruct-v0.1-Q4_K_M.gguf",
-            "javascript": "Phi-4-mini-reasoning-Q8_0.gguf"
-        }
-    })
+    # code_intelligence: Dict[str, Any] = field(default_factory=lambda: {  # Code Intelligence Agent removed
+    #     "enabled": True,
+    #     "model": "DeepSeek-R1-Distill-Llama-8B-Q4_K_M.gguf",
+    #     "specialized_models": {
+    #         "python": "Mistral-7B-Instruct-v0.1-Q4_K_M.gguf",
+    #             "javascript": "Phi-4-mini-reasoning-Q8_0.gguf"
+    #         }
+    # })
     productivity: Dict[str, Any] = field(default_factory=lambda: {
         "enabled": True,
         "model": "Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
-        "real_time_analysis": True
+        "real_time_analysis": False  # Disabled - no live monitoring
     })
-    security: Dict[str, Any] = field(default_factory=lambda: {
-        "enabled": True,
-        "model": "TinyLlama-1.1B-Chat-v1.0-Q4_K_M.gguf",
-        "continuous_monitoring": True
-    })
+    # security: Dict[str, Any] = field(default_factory=lambda: {  # Security Agent removed
+    #     "enabled": True,
+    #     "model": "TinyLlama-1.1B-Chat-v1.0-Q4_K_M.gguf",
+    #     "continuous_monitoring": False  # Disabled - no live monitoring
+    # })
 
 @dataclass
 class IntegrationConfiguration:

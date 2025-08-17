@@ -26,7 +26,7 @@ class AgentManager:
         except ImportError:
             self.real_monitor = None
         
-        # Default agent configuration (will be updated with real data)
+        # Core agent configuration - focused on 3 main areas
         self.agents = {
             'file_organization': {
                 'name': 'File Organization',
@@ -44,17 +44,6 @@ class AgentManager:
                 'description': 'Multimodal content analysis and understanding',
                 'model': 'Llama-3.1-8B',
                 'status': 'active',
-                'priority': 'medium',
-                'enabled': True,
-                'performance': 0.0,
-                'tasks_completed': 0,
-                'last_activity': 'Initializing...'
-            },
-            'code_intelligence': {
-                'name': 'Code Intelligence',
-                'description': 'Advanced code analysis and optimization',
-                'model': 'Phi-4-Mini',
-                'status': 'active',
                 'priority': 'high',
                 'enabled': True,
                 'performance': 0.0,
@@ -63,29 +52,18 @@ class AgentManager:
             },
             'productivity': {
                 'name': 'Productivity Assistant',
-                'description': 'Real-time productivity optimization',
-                'model': 'TinyLlama-1.1B',
+                'description': 'Workflow optimization and task management',
+                'model': 'Llama-3.1-8B',
                 'status': 'active',
-                'priority': 'medium',
+                'priority': 'high',
                 'enabled': True,
                 'performance': 0.0,
                 'tasks_completed': 0,
                 'last_activity': 'Initializing...'
             },
-            'security': {
-                'name': 'Security Monitor',
-                'description': 'Continuous security monitoring and threat detection',
-                'model': 'TinyLlama-1.1B',
-                'status': 'inactive',
-                'priority': 'high',
-                'enabled': False,
-                'performance': 0.0,
-                'tasks_completed': 0,
-                'last_activity': 'Never'
-            },
-            'apple_silicon_detector': {
-                'name': 'Apple Silicon Detector',
-                'description': 'Hardware-optimized analysis and processing',
+            'professional_file_manager': {
+                'name': 'Professional File Manager',
+                'description': 'Professional project file organization with industry standards',
                 'model': 'Multi-Model',
                 'status': 'active',
                 'priority': 'high',
@@ -96,42 +74,13 @@ class AgentManager:
             }
         }
         
-        # Update with real data if available
-        self.update_with_real_data()
+        # Real-time data updates removed - no live monitoring
+        # self.update_with_real_data()
     
     def update_with_real_data(self):
-        """Update agent data with real monitoring information"""
-        if self.real_monitor:
-            try:
-                live_metrics = self.real_monitor.get_live_metrics()
-                agent_details = live_metrics.get('agents', {}).get('agent_details', {})
-                
-                for agent_name, agent_data in self.agents.items():
-                    if agent_name in agent_details:
-                        real_data = agent_details[agent_name]
-                        agent_data['performance'] = real_data.get('performance', 0.0)
-                        agent_data['tasks_completed'] = real_data.get('tasks_completed', 0)
-                        agent_data['status'] = 'active' if real_data.get('active', False) else 'inactive'
-                        
-                        # Format last activity
-                        last_activity = real_data.get('last_activity')
-                        if last_activity:
-                            try:
-                                activity_time = datetime.fromisoformat(last_activity)
-                                time_diff = datetime.now() - activity_time
-                                if time_diff.total_seconds() < 60:
-                                    agent_data['last_activity'] = f"{int(time_diff.total_seconds())} seconds ago"
-                                elif time_diff.total_seconds() < 3600:
-                                    agent_data['last_activity'] = f"{int(time_diff.total_seconds() // 60)} minutes ago"
-                                else:
-                                    agent_data['last_activity'] = f"{int(time_diff.total_seconds() // 3600)} hours ago"
-                            except:
-                                agent_data['last_activity'] = 'Recent'
-                        else:
-                            agent_data['last_activity'] = 'No recent activity'
-                
-            except Exception as e:
-                print(f"Error updating with real data: {e}")
+        """Update agent data with real monitoring information (DISABLED)"""
+        # Real-time monitoring removed - no live data updates
+        pass
     
     def setup_session_state(self):
         """Initialize agent manager session state"""

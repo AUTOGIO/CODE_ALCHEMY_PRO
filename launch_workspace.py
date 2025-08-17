@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-CODE_ALCHEMY Professional Interactive Dashboard Launcher
-Launch the comprehensive system management dashboard
+SMART WORKSPACE Professional Interactive Dashboard Launcher
+Launch the comprehensive workspace management dashboard
 """
 
 import os
@@ -11,7 +11,7 @@ from pathlib import Path
 
 def main():
     """Launch the interactive dashboard"""
-    print("🧪 CODE_ALCHEMY Professional Dashboard")
+    print("🧪 SMART WORKSPACE Professional Dashboard")
     print("=" * 50)
     
     # Check if we're in the right directory
@@ -51,13 +51,11 @@ def main():
         print(f"⚠️  LM Studio not available: {e}")
         print("   Some features may be limited")
     
-    # Initialize real monitoring
-    print("📊 Initializing real monitoring system...")
-    try:
-        from src.core.real_monitor import real_monitor
-        print("✅ Real monitoring system initialized")
-    except Exception as e:
-        print(f"⚠️  Real monitoring not available: {e}")
+    # Real monitoring removed - no live data collection
+    print("📊 Real-time monitoring disabled")
+    print("   - Performance analyzer removed")
+    print("   - System monitor removed")
+    print("   - Live metrics collection disabled")
     
     # Check data directories
     print("📁 Checking data directories...")
@@ -68,30 +66,30 @@ def main():
     
     # Launch the dashboard
     print("🚀 Launching interactive dashboard...")
-    print("📊 Dashboard will open in your browser")
-    print("🔄 Press Ctrl+C to stop the server")
-    print("-" * 50)
-    
-    try:
-        # Change to project root directory
-        os.chdir(project_root)
+            print("📊 Workspace will open in your browser")
+        print("🔄 Press Ctrl+C to stop the server")
+        print("-" * 50)
         
-        # Launch Streamlit app
-        cmd = [
-            sys.executable, "-m", "streamlit", "run",
-            str(app_path),
-            "--server.port", "8501",
-            "--server.address", "localhost",
-            "--browser.gatherUsageStats", "false"
-        ]
-        
-        subprocess.run(cmd)
-        
-    except KeyboardInterrupt:
-        print("\n🛑 Dashboard stopped by user")
-    except Exception as e:
-        print(f"❌ Error launching dashboard: {e}")
-        sys.exit(1)
+        try:
+            # Change to project root directory
+            os.chdir(project_root)
+            
+            # Launch Streamlit app
+            cmd = [
+                sys.executable, "-m", "streamlit", "run",
+                str(app_path),
+                "--server.port", "8501",
+                "--server.address", "localhost",
+                "--browser.gatherUsageStats", "false"
+            ]
+            
+            subprocess.run(cmd)
+            
+        except KeyboardInterrupt:
+            print("\n🛑 Workspace stopped by user")
+        except Exception as e:
+            print(f"❌ Error launching workspace: {e}")
+            sys.exit(1)
 
 if __name__ == "__main__":
     main() 

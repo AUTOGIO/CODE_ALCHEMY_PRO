@@ -360,54 +360,10 @@ class DashboardControls:
                 st.success("Models optimized for current workload!")
     
     def render_performance_controls(self):
-        """Render performance monitoring and controls"""
-        st.subheader("📊 Performance Monitoring")
-        
-        # Real-time performance chart
-        st.markdown("**Real-time System Performance**")
-        
-        # Generate sample performance data
-        timestamps = pd.date_range(start='2024-01-01', periods=100, freq='1min')
-        cpu_usage = [60 + 20*np.sin(i/10) + np.random.normal(0, 5) for i in range(100)]
-        memory_usage = [70 + 15*np.sin(i/15) + np.random.normal(0, 3) for i in range(100)]
-        gpu_usage = [45 + 25*np.sin(i/8) + np.random.normal(0, 4) for i in range(100)]
-        
-        df = pd.DataFrame({
-            'Time': timestamps,
-            'CPU (%)': cpu_usage,
-            'Memory (%)': memory_usage,
-            'GPU (%)': gpu_usage
-        })
-        
-        fig = go.Figure()
-        
-        fig.add_trace(go.Scatter(
-            x=df['Time'], y=df['CPU (%)'],
-            mode='lines', name='CPU Usage',
-            line=dict(color='#1f77b4', width=2)
-        ))
-        
-        fig.add_trace(go.Scatter(
-            x=df['Time'], y=df['Memory (%)'],
-            mode='lines', name='Memory Usage',
-            line=dict(color='#ff7f0e', width=2)
-        ))
-        
-        fig.add_trace(go.Scatter(
-            x=df['Time'], y=df['GPU (%)'],
-            mode='lines', name='GPU Usage',
-            line=dict(color='#2ca02c', width=2)
-        ))
-        
-        fig.update_layout(
-            title="System Performance Over Time",
-            xaxis_title="Time",
-            yaxis_title="Usage (%)",
-            height=400,
-            hovermode='x unified'
-        )
-        
-        st.plotly_chart(fig, use_container_width=True)
+        """Render performance controls (real-time monitoring removed)"""
+        st.subheader("📊 Performance Controls")
+        st.info("⚠️ Real-time performance monitoring has been removed from this system.")
+        st.info("📈 Performance analysis is now available through static reports and manual analysis.")
         
         # Performance controls
         st.subheader("⚡ Performance Controls")
