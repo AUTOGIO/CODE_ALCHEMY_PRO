@@ -66,30 +66,30 @@ def main():
     
     # Launch the dashboard
     print("🚀 Launching interactive dashboard...")
-            print("📊 Workspace will open in your browser")
-        print("🔄 Press Ctrl+C to stop the server")
-        print("-" * 50)
+    print("📊 Workspace will open in your browser")
+    print("🔄 Press Ctrl+C to stop the server")
+    print("-" * 50)
+    
+    try:
+        # Change to project root directory
+        os.chdir(project_root)
         
-        try:
-            # Change to project root directory
-            os.chdir(project_root)
-            
-            # Launch Streamlit app
-            cmd = [
-                sys.executable, "-m", "streamlit", "run",
-                str(app_path),
-                "--server.port", "8501",
-                "--server.address", "localhost",
-                "--browser.gatherUsageStats", "false"
-            ]
-            
-            subprocess.run(cmd)
-            
-        except KeyboardInterrupt:
-            print("\n🛑 Workspace stopped by user")
-        except Exception as e:
-            print(f"❌ Error launching workspace: {e}")
-            sys.exit(1)
+        # Launch Streamlit app
+        cmd = [
+            sys.executable, "-m", "streamlit", "run",
+            str(app_path),
+            "--server.port", "8501",
+            "--server.address", "localhost",
+            "--browser.gatherUsageStats", "false"
+        ]
+        
+        subprocess.run(cmd)
+        
+    except KeyboardInterrupt:
+        print("\n🛑 Workspace stopped by user")
+    except Exception as e:
+        print(f"❌ Error launching workspace: {e}")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main() 

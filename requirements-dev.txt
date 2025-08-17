@@ -1,0 +1,5 @@
+# SMART WORKSPACE Professional - Development Dependencies
+-r requirements.txt
+
+# Testing Framework
+pytest>=7.4.0,<8.0.0
